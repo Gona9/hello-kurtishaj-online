@@ -1,52 +1,226 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello</title>
+    <title>Aurelius Tech | Premium Electronics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
         --gold: #d4af37;
-        --white: #ffffff;
+        --gold-soft: #efd998;
+        --ivory: #fffdf6;
+        --charcoal: #0f1114;
+        --slate: #1b2028;
+        --glass: rgba(255, 255, 255, 0.08);
       }
       * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
       body {
-        margin: 0;
+        font-family: "Manrope", sans-serif;
+        background:
+          radial-gradient(circle at 20% 0%, rgba(212, 175, 55, 0.20), transparent 45%),
+          radial-gradient(circle at 90% 100%, rgba(212, 175, 55, 0.12), transparent 35%),
+          linear-gradient(145deg, #090b0d, #11151c 45%, #0c0f13);
+        color: var(--ivory);
         min-height: 100vh;
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, #fff8dc 0%, var(--gold) 100%);
-        color: var(--white);
-        font-family: Georgia, "Times New Roman", serif;
       }
-      main {
-        text-align: center;
-        background: rgba(255, 255, 255, 0.18);
-        border: 1px solid rgba(255, 255, 255, 0.35);
+      .shell {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 1.25rem 1rem 2.2rem;
+      }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: .75rem 1rem;
+        border: 1px solid rgba(212, 175, 55, 0.35);
         border-radius: 14px;
-        padding: 2rem 2.5rem;
+        background: rgba(0, 0, 0, 0.28);
       }
-      h1 { margin: 0 0 .5rem; font-size: 2.4rem; }
-      p { margin: 0; font-size: 1.05rem; }
-      ul {
-        list-style: none;
-        margin: 1rem 0 0;
-        padding: 0;
+      .brand {
+        font-family: "Cinzel", serif;
+        letter-spacing: .08em;
+        font-weight: 700;
+        color: var(--gold-soft);
       }
-      li {
-        margin: .35rem 0;
+      .tag {
+        font-size: .82rem;
+        color: #f7e8b8;
+        border: 1px solid rgba(212, 175, 55, 0.45);
+        border-radius: 999px;
+        padding: .35rem .65rem;
+        white-space: nowrap;
+      }
+      .hero {
+        margin-top: 1rem;
+        border: 1px solid rgba(212, 175, 55, 0.26);
+        border-radius: 20px;
+        padding: 2rem 1.35rem;
+        background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+        animation: rise .7s ease-out both;
+      }
+      h1 {
+        margin: 0;
+        font-family: "Cinzel", serif;
+        font-size: clamp(1.9rem, 4.8vw, 3.2rem);
+        line-height: 1.15;
+      }
+      .gold { color: var(--gold-soft); }
+      .subtitle {
+        margin: .9rem 0 1.4rem;
+        max-width: 62ch;
+        color: #efe5c6;
+      }
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .7rem;
+      }
+      .btn {
+        border: 1px solid rgba(212, 175, 55, 0.55);
+        border-radius: 11px;
+        padding: .68rem .95rem;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: .92rem;
+      }
+      .btn.primary {
+        background: linear-gradient(120deg, #f7e0a0, #d4af37);
+        color: #2b2204;
+      }
+      .btn.secondary {
+        background: transparent;
+        color: var(--ivory);
+      }
+      .section-title {
+        font-family: "Cinzel", serif;
+        font-size: 1.25rem;
+        margin: 1.45rem 0 .75rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: .8rem;
+      }
+      .card {
+        grid-column: span 12;
+        border: 1px solid rgba(212, 175, 55, 0.24);
+        border-radius: 15px;
+        padding: 1rem;
+        background: var(--glass);
+        backdrop-filter: blur(5px);
+      }
+      .card h3 {
+        margin: 0;
         font-size: 1.05rem;
+      }
+      .price {
+        margin: .25rem 0 .5rem;
+        color: var(--gold-soft);
+        font-weight: 700;
+      }
+      .meta {
+        margin: 0;
+        color: #e6dcc0;
+        font-size: .9rem;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .45rem;
+        margin-top: .65rem;
+      }
+      .chip {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 999px;
+        padding: .25rem .55rem;
+        font-size: .75rem;
+        color: #f4ecd0;
+      }
+      .trust {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: .55rem;
+      }
+      .trust div {
+        border: 1px solid rgba(212,175,55,0.2);
+        background: rgba(255,255,255,0.04);
+        border-radius: 12px;
+        text-align: center;
+        padding: .7rem .4rem;
+        font-size: .83rem;
+      }
+      footer {
+        text-align: center;
+        color: #dccd9d;
+        font-size: .82rem;
+        margin-top: 1.5rem;
+      }
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @media (min-width: 760px) {
+        .shell { padding: 1.6rem 1.2rem 2.5rem; }
+        .hero { padding: 2.25rem 2rem; }
+        .card { grid-column: span 6; }
+      }
+      @media (min-width: 1020px) {
+        .card { grid-column: span 4; }
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>Hello World</h1>
-      <p>Served from Proxmox LXC 101 via Cloudflare Tunnel.</p>
-      <ul>
-        <li>iPhone</li>
-        <li>Charger</li>
-      </ul>
-    </main>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">AURELIUS TECH</div>
+        <div class="tag">Premium Online Electronics Store</div>
+      </header>
+
+      <section class="hero">
+        <h1>Luxury Tech, <span class="gold">Engineered for Everyday</span></h1>
+        <p class="subtitle">Explore flagship phones, precision audio, and elite accessories curated for performance, style, and reliability.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#products">Shop Collection</a>
+          <a class="btn secondary" href="#trust">Why Aurelius</a>
+        </div>
+      </section>
+
+      <h2 id="products" class="section-title">Featured Products</h2>
+      <section class="grid">
+        <article class="card">
+          <h3>iPhone</h3>
+          <p class="price">From $999</p>
+          <p class="meta">Flagship camera system, pro-grade chip, and all-day battery in a premium finish.</p>
+          <div class="chips"><span class="chip">Best Seller</span><span class="chip">5G</span><span class="chip">Trade-in Ready</span></div>
+        </article>
+        <article class="card">
+          <h3>Fast Charger</h3>
+          <p class="price">$49</p>
+          <p class="meta">Compact GaN charging with optimized thermal control and universal USB-C support.</p>
+          <div class="chips"><span class="chip">30W</span><span class="chip">Travel Safe</span><span class="chip">USB-C</span></div>
+        </article>
+        <article class="card">
+          <h3>AirPods Pro</h3>
+          <p class="price">$249</p>
+          <p class="meta">Adaptive noise control and immersive sound tuned for calls, music, and movement.</p>
+          <div class="chips"><span class="chip">ANC</span><span class="chip">Spatial Audio</span><span class="chip">Wireless</span></div>
+        </article>
+      </section>
+
+      <h2 id="trust" class="section-title">Why Customers Choose Us</h2>
+      <section class="trust">
+        <div>Authentic Products</div>
+        <div>Insured Express Shipping</div>
+        <div>Priority Support</div>
+      </section>
+
+      <footer>Served from Proxmox LXC 101 via Cloudflare Tunnel.</footer>
+    </div>
   </body>
 </html>
